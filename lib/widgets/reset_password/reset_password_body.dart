@@ -40,7 +40,10 @@ class ResetPasswordBody extends StatelessWidget {
           CButton(
               text: "Save",
               onPressed: () {
-                Get.toNamed(Routes.home);
+                Get.offNamedUntil(
+                  Routes.login,
+                  (route) => Get.currentRoute == Routes.login,
+                );
               })
         ],
       ),

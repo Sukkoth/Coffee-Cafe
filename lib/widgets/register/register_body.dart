@@ -19,7 +19,7 @@ class RegisterBody extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const RegisterForm(),
+          RegisterForm(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

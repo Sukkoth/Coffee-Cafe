@@ -35,7 +35,7 @@ class VerificationBody extends StatelessWidget {
           CButton(
               text: "Verify",
               onPressed: () {
-                Get.toNamed(Routes.resetPassword);
+                Get.offAndToNamed(Routes.resetPassword);
               })
         ],
       ),

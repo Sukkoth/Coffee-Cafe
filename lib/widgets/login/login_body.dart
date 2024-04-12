@@ -34,7 +34,7 @@ class LoginBody extends StatelessWidget {
                   )),
               TextButton(
                   onPressed: () {
-                    Get.toNamed(Routes.register);
+                    Get.offAndToNamed(Routes.home);
                   },
                   child: Text(
                     "Sign up?",

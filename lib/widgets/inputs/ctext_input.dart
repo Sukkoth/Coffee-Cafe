@@ -6,11 +6,13 @@ class CTextInput extends StatelessWidget {
   final String label;
   final String hint;
   final bool obscure;
+  final String? Function(String? value)? validator;
   const CTextInput(
       {super.key,
       this.controller,
       required this.label,
       required this.hint,
+      this.validator,
       this.obscure = false});
 
   @override
@@ -28,7 +30,8 @@ class CTextInput extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        TextField(
+        TextFormField(
+          validator: validator,
           obscureText: obscure,
           controller: controller,
           decoration: InputDecoration(
