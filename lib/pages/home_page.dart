@@ -74,7 +74,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const BannerList()
+            BannerList()
           ],
         ),
       ),
