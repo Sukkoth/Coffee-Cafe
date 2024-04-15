@@ -1,12 +1,22 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/controllers/index_pages_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-  const AppAppBar({super.key, required this.title});
+  AppAppBar({super.key});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+
+  final IndexPageController indexController = Get.find<IndexPageController>();
+
+  final Map _appBarTitle = {
+    0: "Home",
+    1: "Favourites",
+    2: "Menu",
+    3: "Cart",
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +25,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       centerTitle: true,
       title: Text(
-        title,
+        _appBarTitle[indexController.activePageIndex],
         style: Typo.style(
             fontSize: Typo.header4,
             color: MyColors.shade4,

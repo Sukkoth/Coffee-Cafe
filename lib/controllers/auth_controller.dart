@@ -2,8 +2,8 @@ import 'package:coffe_shop/models/user.dart';
 import 'package:get/get.dart';
 
 class AuthController extends GetxController {
-  bool isLoggedIn = false;
-  String? token;
+  bool isLoggedIn = true;
+  String? token = 'asdklfja;bcbfj;a kfjca;nkdjfc;a';
   User? user;
   bool rememberMe = false;
   String? _errorMessage;

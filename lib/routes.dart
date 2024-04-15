@@ -63,7 +63,7 @@ List<GetPage> _list = [
   ),
   GetPage(
     name: Routes.home,
-    page: () => const IndexPage(),
+    page: () => IndexPage(),
     middlewares: [
       AuthMiddleware(),
     ],
