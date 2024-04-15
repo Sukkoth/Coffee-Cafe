@@ -17,19 +17,20 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+  PageController pageController = PageController();
   int _activePageIndex = 0;
-  final Map _pages = {
-    0: const HomePage(),
-    1: const FavouritesPage(),
-    2: const MenuPage(),
-    3: const CartPage(),
+
+  final Map _appBarTitle = {
+    0: "Home",
+    1: "Favourites",
+    2: "Menu",
+    3: "Cart",
   };
 
-  final Map _appBarTitle = {0: "Home", 1: "Favourites", 2: "Menu", 3: "Cart"};
-
-  void _changeScreen(int index) {
+  void _changeScreen(int index, [bool isFromNav = false]) {
     if (index < 4) {
       setState(() {
+        if (isFromNav) pageController.jumpToPage(index);
         _activePageIndex = index;
       });
     } else if (index == 4) {
@@ -43,7 +44,7 @@ class _IndexPageState extends State<IndexPage> {
       drawer: const HomeDrawer(),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {
-          _changeScreen(value);
+          _changeScreen(value, true);
         },
         currentIndex: _activePageIndex,
         iconSize: 32,
@@ -74,7 +75,18 @@ class _IndexPageState extends State<IndexPage> {
           ? const HomeAppBar()
           : AppAppBar(title: _appBarTitle[_activePageIndex])
               as PreferredSizeWidget,
-      body: _pages[_activePageIndex],
+      body: PageView(
+        controller: pageController,
+        onPageChanged: (value) {
+          _changeScreen(value);
+        },
+        children: const [
+          HomePage(),
+          FavouritesPage(),
+          MenuPage(),
+          CartPage(),
+        ],
+      ),
     );
   }
 }

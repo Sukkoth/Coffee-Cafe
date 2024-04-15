@@ -27,12 +27,22 @@ class ProductsList extends StatelessWidget {
                   style: const ButtonStyle(),
                   child: Row(
                     children: [
-                      Text(
-                        "View all",
-                        style: Typo.style(
-                          color: MyColors.primary,
-                          fontSize: Typo.header6,
-                          fontWeight: FontWeight.w600,
+                      TextButton(
+                        onPressed: () {
+                          debugPrint("🚀🚀 Navigate to menu");
+                        },
+                        style: const ButtonStyle(
+                          padding: MaterialStatePropertyAll(
+                            EdgeInsets.zero,
+                          ),
+                        ),
+                        child: Text(
+                          "View all",
+                          style: Typo.style(
+                            color: MyColors.primary,
+                            fontSize: Typo.header6,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                       Icon(
@@ -42,9 +52,6 @@ class ProductsList extends StatelessWidget {
                     ],
                   ))
             ],
-          ),
-          const SizedBox(
-            height: 20,
           ),
           GridView.builder(
               itemCount: 4,
