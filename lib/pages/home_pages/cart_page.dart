@@ -1,3 +1,5 @@
+import 'package:coffe_shop/widgets/cart_page/cart_item.dart';
+import 'package:coffe_shop/widgets/cart_page/cart_summary.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -5,9 +7,24 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
-      child: Center(
-        child: Text("CART PAGE"),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            ListView(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              children: const [
+                CartItem(),
+                CartItem(),
+              ],
+            ),
+            const CartSummary()
+          ],
+        ),
       ),
     );
   }

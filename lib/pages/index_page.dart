@@ -23,11 +23,13 @@ class IndexPage extends StatelessWidget {
       builder: (_) {
         pageController.jumpToPage(indexController.activePageIndex);
         return Scaffold(
+          backgroundColor: MyColors.shade2,
           drawer: const HomeDrawer(),
           bottomNavigationBar: Container(
             padding: const EdgeInsets.symmetric(vertical: 6),
             color: Colors.transparent,
             child: BottomNavigationBar(
+              backgroundColor: MyColors.shade2,
               elevation: 0,
               onTap: (value) {
                 indexController.setPage(value);
