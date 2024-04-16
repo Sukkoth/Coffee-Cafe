@@ -1,7 +1,9 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/routes.dart';
 import 'package:coffe_shop/widgets/buttons/button.dart';
 import 'package:coffe_shop/widgets/cart_page/coupon_code_input.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CartSummary extends StatelessWidget {
   const CartSummary({super.key});
@@ -147,7 +149,11 @@ class CartSummary extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        CButton(text: "Checkout", onPressed: () {}),
+        CButton(
+            text: "Checkout",
+            onPressed: () {
+              Get.toNamed(Routes.payment.select);
+            }),
       ],
     );
   }

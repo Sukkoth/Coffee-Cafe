@@ -4,8 +4,8 @@ import 'package:coffe_shop/pages/home_pages/cart_page.dart';
 import 'package:coffe_shop/pages/home_pages/favourites_page.dart';
 import 'package:coffe_shop/pages/home_pages/home_page.dart';
 import 'package:coffe_shop/pages/home_pages/menu_page.dart';
-import 'package:coffe_shop/widgets/home_page/app_bars/home_app_bar.dart';
-import 'package:coffe_shop/widgets/home_page/app_bars/app_bar.dart';
+import 'package:coffe_shop/widgets/app_bars/home_app_bar.dart';
+import 'package:coffe_shop/widgets/app_bars/app_bar.dart';
 import 'package:coffe_shop/constants.dart';
 import 'package:coffe_shop/widgets/home_page/drawer/drawer.dart';
 import 'package:get/get.dart';
@@ -21,7 +21,13 @@ class IndexPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<IndexPageController>(
       builder: (_) {
-        pageController.jumpToPage(indexController.activePageIndex);
+        //TODO THIS IS MESSED UP, CHANGE THIS
+        // Change how you are jumping from page to page
+        try {
+          pageController.jumpToPage(indexController.activePageIndex);
+        } catch (e) {
+          debugPrint("🚀🚀 Jump to page later");
+        }
         return Scaffold(
           backgroundColor: MyColors.shade2,
           drawer: const HomeDrawer(),

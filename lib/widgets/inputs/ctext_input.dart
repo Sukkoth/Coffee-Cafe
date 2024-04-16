@@ -6,14 +6,21 @@ class CTextInput extends StatelessWidget {
   final String label;
   final String hint;
   final bool obscure;
+  final TextStyle? labelStyle;
+  final EdgeInsetsGeometry? contentPadding;
+  final TextInputType? keyboardType;
   final String? Function(String? value)? validator;
-  const CTextInput(
-      {super.key,
-      this.controller,
-      required this.label,
-      required this.hint,
-      this.validator,
-      this.obscure = false});
+  const CTextInput({
+    super.key,
+    this.controller,
+    required this.label,
+    required this.hint,
+    this.validator,
+    this.labelStyle,
+    this.contentPadding,
+    this.keyboardType,
+    this.obscure = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,19 +29,22 @@ class CTextInput extends StatelessWidget {
       children: [
         Text(
           label,
-          style: Typo.style(
-              fontSize: Typo.header4,
-              fontWeight: FontWeight.w600,
-              color: MyColors.shade6),
+          style: labelStyle ??
+              Typo.style(
+                  fontSize: Typo.header4,
+                  fontWeight: FontWeight.w600,
+                  color: MyColors.shade6),
         ),
         const SizedBox(
           height: 10,
         ),
         TextFormField(
+          keyboardType: keyboardType,
           validator: validator,
           obscureText: obscure,
           controller: controller,
           decoration: InputDecoration(
+            contentPadding: contentPadding,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
             ),
