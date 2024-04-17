@@ -7,20 +7,23 @@ class CTextInput extends StatelessWidget {
   final String hint;
   final bool obscure;
   final TextStyle? labelStyle;
+  final int? maxLength;
   final EdgeInsetsGeometry? contentPadding;
   final TextInputType? keyboardType;
   final String? Function(String? value)? validator;
-  const CTextInput({
-    super.key,
-    this.controller,
-    required this.label,
-    required this.hint,
-    this.validator,
-    this.labelStyle,
-    this.contentPadding,
-    this.keyboardType,
-    this.obscure = false,
-  });
+  final void Function(String val)? onChanged;
+  const CTextInput(
+      {super.key,
+      this.controller,
+      required this.label,
+      required this.hint,
+      this.validator,
+      this.labelStyle,
+      this.contentPadding,
+      this.keyboardType,
+      this.obscure = false,
+      this.maxLength,
+      this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +42,12 @@ class CTextInput extends StatelessWidget {
           height: 10,
         ),
         TextFormField(
+          onChanged: (val) {
+            if (onChanged != null) {
+              onChanged!(val);
+            }
+          },
+          maxLength: maxLength,
           keyboardType: keyboardType,
           validator: validator,
           obscureText: obscure,

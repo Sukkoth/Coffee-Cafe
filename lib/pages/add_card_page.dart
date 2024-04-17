@@ -3,11 +3,40 @@ import 'package:coffe_shop/widgets/app_bars/secondary_app_bar.dart';
 import 'package:coffe_shop/widgets/buttons/button.dart';
 import 'package:coffe_shop/widgets/inputs/ctext_input.dart';
 import 'package:coffe_shop/widgets/payment_method/app_date_picker.dart';
+import 'package:coffe_shop/widgets/payment_method/card_image/card_image.dart';
 import 'package:flutter/material.dart';
 
-class AddCardPage extends StatelessWidget {
+class AddCardPage extends StatefulWidget {
   const AddCardPage({super.key});
 
+  @override
+  State<AddCardPage> createState() => _AddCardPageState();
+}
+
+class _AddCardPageState extends State<AddCardPage> {
+  TextEditingController holderNameController = TextEditingController();
+  TextEditingController cardNumberController = TextEditingController();
+  TextEditingController cvvController = TextEditingController();
+
+  String? holderName;
+  String? cardNumber;
+  // String? holderName;
+
+  //TODO make cvv and expiry date passed to cardImage
+
+  void _setHolderName(String val) {
+    setState(() {
+      holderName = val;
+    });
+  }
+
+  void _setCardNumber(String val) {
+    setState(() {
+      cardNumber = val;
+    });
+  }
+
+  DateTime? expiryDateController;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +47,9 @@ class AddCardPage extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: Column(
               children: [
-                Image.asset(
-                  'assets/images/card-image.png',
-                  height: 240,
-                  fit: BoxFit.cover,
+                CardImage(
+                  holderName: holderName,
+                  cardNumber: cardNumber,
                 ),
                 const SizedBox(
                   height: 15,
@@ -30,6 +58,8 @@ class AddCardPage extends StatelessWidget {
                   child: Column(
                     children: [
                       CTextInput(
+                        onChanged: _setHolderName,
+                        controller: holderNameController,
                         label: 'Name on Card *',
                         labelStyle: Typo.style(
                           fontSize: Typo.header5,
@@ -46,6 +76,9 @@ class AddCardPage extends StatelessWidget {
                         height: 15,
                       ),
                       CTextInput(
+                        maxLength: 16,
+                        onChanged: _setCardNumber,
+                        controller: cardNumberController,
                         label: 'Card number *',
                         labelStyle: Typo.style(
                           fontSize: Typo.header5,
@@ -67,6 +100,7 @@ class AddCardPage extends StatelessWidget {
                         height: 15,
                       ),
                       CTextInput(
+                        controller: cvvController,
                         label: 'CVV *',
                         labelStyle: Typo.style(
                           fontSize: Typo.header5,
