@@ -2,7 +2,9 @@ import 'package:coffe_shop/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsBodyHeader extends StatelessWidget {
-  const ProductDetailsBodyHeader({super.key});
+  final String name;
+
+  const ProductDetailsBodyHeader({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +15,9 @@ class ProductDetailsBodyHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Espresso",
+              name,
               style: Typo.style(
-                fontSize: Typo.header2,
+                fontSize: Typo.header3,
                 fontWeight: FontWeight.w700,
                 color: MyColors.shade7,
               ),

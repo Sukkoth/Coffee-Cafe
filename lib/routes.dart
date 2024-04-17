@@ -93,7 +93,7 @@ List<GetPage> _list = [
   ),
   GetPage(
     name: Routes.product.detailsDefinition,
-    page: () => const ProductDetails(),
+    page: () => ProductDetails(),
   ),
   GetPage(
     name: Routes.profile.index,

@@ -18,7 +18,9 @@ class MenuPage extends StatelessWidget {
           ),
           // BannerList(),
           Categories(),
-          const ProductsList(),
+          ProductsList(
+            some: false,
+          ),
         ],
       ),
     );

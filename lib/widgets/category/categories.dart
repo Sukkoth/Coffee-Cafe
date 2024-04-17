@@ -11,6 +11,7 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // debugPrint("🚀🚀 HERE ${controller.categories[0].getMenu?.length}");
     return Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
@@ -38,9 +39,11 @@ class Categories extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return CategoryItem(
                       item: controller.categories[index],
-                      active: controller.selectedCategoryIndex == index,
+                      active: controller.selectedCategoryId ==
+                          controller.categories[index].id,
                       onTap: () {
-                        controller.setSelectedCategory(index);
+                        controller.setSelectedCategory(
+                            controller.categories[index].id);
                       },
                     );
                   });

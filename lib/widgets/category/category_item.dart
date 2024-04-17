@@ -1,8 +1,9 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/models/category.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
-  final Map item;
+  final Category item;
   final bool active;
   final VoidCallback onTap;
   const CategoryItem(
@@ -32,12 +33,12 @@ class CategoryItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              'assets/images${item["imageUrl"]}',
+              'assets/images${item.imageUrl}',
               height: 60,
               width: 30,
             ),
             Text(
-              item['title'],
+              item.name,
               overflow: TextOverflow.ellipsis,
               style: Typo.style(
                 color: active ? MyColors.shade2 : MyColors.shade5,

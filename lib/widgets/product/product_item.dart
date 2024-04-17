@@ -1,17 +1,19 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/models/menu_item.dart';
 import 'package:coffe_shop/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductItem extends StatelessWidget {
-  const ProductItem({super.key});
+  final MenuItem item;
+  const ProductItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Get.toNamed(
-          '${Routes.product.details}/1',
+          '${Routes.product.details}/${item.id}',
         );
       },
       child: SizedBox(
@@ -50,12 +52,16 @@ class ProductItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Expresso",
-                      style: Typo.style(
-                        fontSize: Typo.header5,
-                        fontWeight: FontWeight.w600,
-                        color: MyColors.shade5,
+                    SizedBox(
+                      width: 100,
+                      child: Text(
+                        item.name,
+                        style: Typo.style(
+                          fontSize: Typo.header6,
+                          fontWeight: FontWeight.w800,
+                          color: MyColors.shade7,
+                        ),
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Text(
@@ -109,7 +115,7 @@ class ProductItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "\$5.0",
+                  "\$${item.price.toStringAsFixed(2)}",
                   style: Typo.style(
                     fontSize: Typo.header5,
                     fontWeight: FontWeight.w700,

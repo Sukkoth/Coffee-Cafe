@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductDetailHeader extends StatelessWidget {
-  const ProductDetailHeader({super.key});
+  final String imageUrl;
+  const ProductDetailHeader({super.key, this.imageUrl = ""});
 
   @override
   Widget build(BuildContext context) {

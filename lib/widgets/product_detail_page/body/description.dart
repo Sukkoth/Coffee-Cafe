@@ -2,7 +2,8 @@ import 'package:coffe_shop/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailsBodyDescription extends StatelessWidget {
-  const ProductDetailsBodyDescription({super.key});
+  final String? description;
+  const ProductDetailsBodyDescription({super.key, this.description = ""});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class ProductDetailsBodyDescription extends StatelessWidget {
           height: 8,
         ),
         Text(
-          "Espresso, a concentrated coffee originating from Italy, is famed for its intense flavor and rich aroma. Brewed by forcing hot water through finely-ground coffee beans under high pressure, it yields a small but potent shot of coffee. The hallmark of a well-made espresso is its golden-brown \"crema,\" a creamy layer that forms on top of the shot, indicating freshness and quality.",
+          description ?? "",
           textAlign: TextAlign.justify,
           style: Typo.style(
             fontSize: Typo.header6,
