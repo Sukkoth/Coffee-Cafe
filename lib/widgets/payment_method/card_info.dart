@@ -1,8 +1,10 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/routes.dart';
 import 'package:coffe_shop/widgets/buttons/button.dart';
 import 'package:coffe_shop/widgets/inputs/ctext_input.dart';
 import 'package:coffe_shop/widgets/payment_method/app_date_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class PaymentCardInfo extends StatelessWidget {
   const PaymentCardInfo({super.key});
@@ -53,7 +55,11 @@ class PaymentCardInfo extends StatelessWidget {
             height: 50,
           ),
           //button
-          CButton(text: "Pay Now", onPressed: () {})
+          CButton(
+              text: "Pay Now",
+              onPressed: () {
+                Get.toNamed(Routes.order.summary);
+              })
         ],
       ),
     );

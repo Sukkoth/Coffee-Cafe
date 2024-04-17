@@ -2,7 +2,8 @@ import 'package:coffe_shop/constants.dart';
 import 'package:flutter/material.dart';
 
 class PaymentTopNav extends StatelessWidget {
-  const PaymentTopNav({super.key});
+  final bool complete;
+  const PaymentTopNav({super.key, this.complete = false});
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +49,13 @@ class PaymentTopNav extends StatelessWidget {
             padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: MyColors.shade1,
+                color: complete ? MyColors.primary : MyColors.shade1,
                 border: Border.all(
                   color: MyColors.primary,
                 )),
             child: Icon(
               Icons.check_circle,
-              color: MyColors.primary,
+              color: complete ? MyColors.shade1 : MyColors.primary,
             ),
           )
         ],

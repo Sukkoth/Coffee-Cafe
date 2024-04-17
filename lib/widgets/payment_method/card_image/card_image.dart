@@ -16,11 +16,6 @@ class CardImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String number;
-    (cardNumber == null || cardNumber!.isEmpty)
-        ? number = "XXXXXXXXXXXXXXXX"
-        : number = cardNumber!;
-
     return Stack(
       children: [
         Image.asset(
