@@ -34,11 +34,15 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.notifications_none),
+          icon: const Icon(
+            Icons.notifications_none,
+          ),
         ),
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.shopping_bag_outlined),
+          icon: const Icon(
+            Icons.shopping_bag_outlined,
+          ),
         )
       ],
     );

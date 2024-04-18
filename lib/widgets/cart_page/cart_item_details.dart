@@ -1,8 +1,10 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/models/cart.dart';
 import 'package:flutter/material.dart';
 
 class CartItemDetails extends StatelessWidget {
-  const CartItemDetails({super.key});
+  final Cart item;
+  const CartItemDetails({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +27,16 @@ class CartItemDetails extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Text(
-                    "Espresso",
-                    style: Typo.style(
-                      fontSize: Typo.header3,
-                      color: MyColors.shade7,
-                      fontWeight: FontWeight.w700,
+                  SizedBox(
+                    width: 150,
+                    child: Text(
+                      item.menuItem.name,
+                      overflow: TextOverflow.ellipsis,
+                      style: Typo.style(
+                        fontSize: Typo.header4,
+                        color: MyColors.shade7,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -63,7 +69,7 @@ class CartItemDetails extends StatelessWidget {
             children: [
               //price
               Text(
-                "\$10.00",
+                "\$${item.menuItem.price.toStringAsFixed(2)}",
                 style: Typo.style(
                   fontSize: Typo.header4,
                   color: MyColors.primary,

@@ -1,9 +1,11 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/models/cart.dart';
 import 'package:coffe_shop/widgets/cart_page/cart_item_details.dart';
 import 'package:flutter/material.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  final Cart cartItem;
+  const CartItem({super.key, required this.cartItem});
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +36,8 @@ class CartItem extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          const Expanded(
-            child: CartItemDetails(),
+          Expanded(
+            child: CartItemDetails(item: cartItem),
           )
         ],
         //details

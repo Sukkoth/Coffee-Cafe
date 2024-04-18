@@ -28,7 +28,7 @@ class ProductDetailsBody extends StatelessWidget {
           const SizedBox(
             height: 25,
           ),
-          const ProductDetailsButtons()
+          ProductDetailsButtons(id: item.id)
         ],
       ),
     );

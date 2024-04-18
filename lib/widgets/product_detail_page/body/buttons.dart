@@ -1,8 +1,12 @@
 import 'package:coffe_shop/constants.dart';
+import 'package:coffe_shop/controllers/cart_controller.dart';
+import 'package:coffe_shop/widgets/buttons/button.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ProductDetailsButtons extends StatelessWidget {
-  const ProductDetailsButtons({super.key});
+  final String id;
+  const ProductDetailsButtons({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +36,16 @@ class ProductDetailsButtons extends StatelessWidget {
               )
             ],
           ),
-          Container(
-            height: 60,
-            width: 300,
-            decoration: BoxDecoration(
-              color: MyColors.primary,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Center(
-              child: Text(
-                "Add To Order",
-                style: Typo.style(
-                  fontSize: Typo.header4,
-                  color: MyColors.shade1,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+          const SizedBox(
+            width: 15,
           ),
+          Expanded(
+              child: CButton(
+            text: "Add To Order",
+            onPressed: () {
+              Get.find<CartController>().addToCart(id);
+            },
+          ))
         ],
       ),
     );

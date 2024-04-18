@@ -28,9 +28,6 @@ class ConfirmOrderPage extends StatelessWidget {
                             Image.asset(
                               'assets/images/success.png',
                             ),
-                            const SizedBox(
-                              height: 50,
-                            ),
                             Text(
                               "Your order has been placed successfully",
                               textAlign: TextAlign.center,
